@@ -182,7 +182,7 @@ jar {
 
 mixin {
     add sourceSets.main, "mixin.refmap.json"
-    config "mixins.earth2Fix.json"
+    config "earth2_fixes.mixins.json"
 }
 
 // Example configuration to allow publishing using the maven-publish task

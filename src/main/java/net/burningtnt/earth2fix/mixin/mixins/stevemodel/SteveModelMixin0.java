@@ -6,11 +6,27 @@ import com.tac.guns.common.WeaponType;
 import net.burningtnt.earth2fix.Earth2Fixes;
 import net.burningtnt.earth2fix.Features;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(oooO000o00OoOOoO000o000O.class)
 public class SteveModelMixin0 {
+    @Unique
+    private static final WeaponType earth2fixes$defaultWeaponType;
+
+    static {
+        WeaponType defaultWeaponType;
+        try {
+            Gun.Display.class.getMethod("getWeaponType");
+            defaultWeaponType = null;
+        } catch (NoSuchMethodException e) {
+            Earth2Fixes.getLogger().warn("Cannot get the type of the Weapon from com.tac.guns.common.Gun.Display because method com.tac.guns.common.Gun.Display.getWeaponType doesn't exist! WeaponType.AR will be returned!. The weapon may be rendered abnormally.");
+            defaultWeaponType = WeaponType.AR;
+        }
+        earth2fixes$defaultWeaponType = defaultWeaponType;
+    }
+
     @Redirect(
             method = {
                     "OooOo0oOoOO0o00OO000oO00(Lcom/elfmcys/yesstevemodel/o0ooooOo0oo00o0O0oO0OO;Lnet/minecraft/item/ItemStack;)Lcom/elfmcys/yesstevemodel/O0ooo00o00000OOo0oo0oO00;",
@@ -23,13 +39,8 @@ public class SteveModelMixin0 {
             remap = false
     )
     private static WeaponType earth2fixes$getWeaponTypeRedirector(Gun.Display instance) {
-        if (Features.WEAPON_TYPE_FIX.isEnabled()) {
-            try {
-                instance.getClass().getMethod("getWeaponType");
-            } catch (NoSuchMethodException e) {
-                Earth2Fixes.getLogger().warn("Cannot get the type of the Weapon from com.tac.guns.common.Gun.Display because method com.tac.guns.common.Gun.Display.getWeaponType doesn't exist! WeaponType.AR will be returned!.");
-                return WeaponType.AR;
-            }
+        if (Features.WEAPON_TYPE_FIX.isEnabled() && earth2fixes$defaultWeaponType != null) {
+            return earth2fixes$defaultWeaponType;
         }
         return instance.getWeaponType();
     }

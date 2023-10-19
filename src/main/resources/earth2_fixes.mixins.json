@@ -1,22 +1,20 @@
 {
+  "plugin": "net.burningtnt.earth2fix.mixin.MixinConfigPlugin",
   "package": "net.burningtnt.earth2fix.mixin.mixins",
-  "required": true,
   "mixins": [
     "BoundedLocalCache$PerformCleanupTaskMixin",
+    "ChannelManagerMixin",
     "EntityMixin",
     "GoalSelectorMixin",
     "HandshakeMessages$S2CSyncedPlayerDataMixin",
     "IlluminationsClientMixin",
     "NetworkManagerMixin",
     "RenderEventsMixin",
+    "RenderType$TypeMixin",
     "TemplateManagerMixin",
     "ThreadTaskExecutorMixin",
     "UnlockHandlerMixin",
     "WorldMixin",
     "stevemodel.SteveModelMixin0"
-  ],
-  "client": [
-    "ChannelManagerMixin",
-    "RenderType$TypeMixin"
   ]
 }
