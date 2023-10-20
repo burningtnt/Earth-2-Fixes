@@ -1,1 +1,1 @@
-net.burningtnt.earth2fix.mixin.transformer.TransformerService
+net.burningtnt.earth2fix.mixin.transformer.TransformationServiceImpl

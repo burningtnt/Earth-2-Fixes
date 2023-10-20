@@ -13,10 +13,6 @@ public class Earth2Fixes {
     }
 
     public Earth2Fixes() {
-        try {
-            Class.forName("com.tac.guns.common.WeaponType");
-        } catch (ClassNotFoundException e) {
-            LOGGER.error("Class WeaponType doesn't exist!");
-        }
+        Earth2Fixes.getLogger().info("Earth 2 Fixes is loaded.");
     }
 }

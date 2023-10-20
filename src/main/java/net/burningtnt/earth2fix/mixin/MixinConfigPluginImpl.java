@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 import java.util.List;
 import java.util.Set;
 
-public class MixinConfigPlugin implements IMixinConfigPlugin {
+public class MixinConfigPluginImpl implements IMixinConfigPlugin {
     @Override
     public void onLoad(String mixinPackage) {
         Earth2Fixes.getLogger().info("Earth 2 Fixes Mixin Config Plugin is initialized.");

@@ -62,7 +62,7 @@ public final class ConflictableImmutableMapBuilder {
                     boolean flag = RANDOM.nextBoolean();
                     Earth2Fixes.getLogger().warn(
                             String.format(
-                                    "Multiple entries in com.google.common.collect.ImmutableMap with the same key and different values are detected by Earth2 Fixes.\n" +
+                                    "Multiple entries in com.google.common.collect.ImmutableMap with the same key and different values are detected by Earth 2 Fixes.\n" +
                                             "  Key     : %s\n" +
                                             "  Value A : %s\n" +
                                             "  Value B : %s\n" +

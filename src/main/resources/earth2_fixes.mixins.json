@@ -1,5 +1,5 @@
 {
-  "plugin": "net.burningtnt.earth2fix.mixin.MixinConfigPlugin",
+  "plugin": "net.burningtnt.earth2fix.mixin.MixinConfigPluginImpl",
   "package": "net.burningtnt.earth2fix.mixin.mixins",
   "mixins": [
     "BoundedLocalCache$PerformCleanupTaskMixin",
