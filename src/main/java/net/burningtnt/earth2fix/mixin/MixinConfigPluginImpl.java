@@ -11,7 +11,7 @@ import java.util.Set;
 public class MixinConfigPluginImpl implements IMixinConfigPlugin {
     @Override
     public void onLoad(String mixinPackage) {
-        Earth2Fixes.getLogger().info("Earth 2 Fixes Mixin Config Plugin is initialized.");
+        Earth2Fixes.getLogger().info("Earth 2 Fixes Mixin Config Plugin is loaded.");
     }
 
     @Override

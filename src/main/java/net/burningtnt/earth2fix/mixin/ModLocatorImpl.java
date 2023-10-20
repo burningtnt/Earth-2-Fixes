@@ -5,39 +5,30 @@ import net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileLocator;
 import net.minecraftforge.fml.loading.moddiscovery.ModFile;
 import net.minecraftforge.forgespi.locating.IModFile;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
-import java.nio.file.FileSystemNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 public class ModLocatorImpl extends AbstractJarFileLocator {
-    private static final Path selfPath = Optional.ofNullable(ModLocatorImpl.class.getProtectionDomain().getCodeSource())
-            .map(cs -> {
-                try {
-                    return Path.of(cs.getLocation().toURI()).toAbsolutePath();
-                } catch (FileSystemNotFoundException | IllegalArgumentException | URISyntaxException e) {
-                    Earth2Fixes.getLogger().warn("Cannot find the path to Earth 2 Fixes.", e);
-                    return null;
-                }
-            })
-            .filter(Files::isRegularFile)
-            .orElse(null);
-
-    static {
-        Earth2Fixes.getLogger().info(String.format("Earth 2 Fixes path: %s.", selfPath));
-    }
-
     public List<IModFile> scanMods() {
-        if (selfPath == null) {
-            Earth2Fixes.getLogger().info("Successfully added self to Forge.");
-            return List.of();
-        } else {
-            Earth2Fixes.getLogger().info("Cannot added self to Forge.");
-            return List.of(ModFile.newFMLInstance(selfPath, this));
+        Earth2Fixes.getLogger().info("Earth 2 Fixes Mod Locator is invoked.");
+
+        List<IModFile> list = new ArrayList<>();
+        try {
+            Path path = Path.of(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI());
+            if (!Files.isDirectory(path)) {
+                IModFile file = ModFile.newFMLInstance(path, this);
+                this.modJars.compute(file, (mf, fs) -> this.createFileSystem(mf));
+                list.add(file);
+            }
+        } catch (URISyntaxException e) {
+            Earth2Fixes.getLogger().error("Cannot inject Earth 2 Fixes Mod to forge.", e);
         }
+        return list;
     }
 
     public String name() {
