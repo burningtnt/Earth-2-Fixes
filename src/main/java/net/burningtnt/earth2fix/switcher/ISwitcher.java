@@ -1,8 +1,6 @@
 package net.burningtnt.earth2fix.switcher;
 
 public interface ISwitcher {
-    boolean isEnabled();
-
     static ISwitcher ofEnabled() {
         return Features.ENABLED;
     }
@@ -14,4 +12,6 @@ public interface ISwitcher {
     static ISwitcher ofConstantStatus(boolean status) {
         return status ? Features.ENABLED : Features.DISABLED;
     }
+
+    boolean isEnabled();
 }
