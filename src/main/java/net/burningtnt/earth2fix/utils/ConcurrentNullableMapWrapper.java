@@ -3,13 +3,15 @@ package net.burningtnt.earth2fix.utils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Stream;
 
 @SuppressWarnings({"unchecked", "SuspiciousToArrayCall"})
 public final class ConcurrentNullableMapWrapper<K, V> implements Map<K, V> {
     private static final Object NULL_VALUE_SPACE_HOLDER = new Object();
-    private static final Object[] NULL_ARRAY = new Object[]{null};
     private final Map<K, Object> delegate;
     private volatile Object nullValue = null;
 
@@ -124,7 +126,7 @@ public final class ConcurrentNullableMapWrapper<K, V> implements Map<K, V> {
                 if (ConcurrentNullableMapWrapper.this.nullValue == null) {
                     return delegateKeySet.iterator();
                 } else {
-                    return Stream.concat(delegateKeySet.stream(), (Stream<? extends K>) Arrays.stream(NULL_ARRAY)).iterator();
+                    return Stream.concat(delegateKeySet.stream(), Stream.of((K) null)).iterator();
                 }
             }
 
@@ -240,7 +242,7 @@ public final class ConcurrentNullableMapWrapper<K, V> implements Map<K, V> {
                 } else {
                     return Stream.concat(
                             delegateValues.stream().map(o -> o == NULL_VALUE_SPACE_HOLDER ? null : (V) o),
-                            nv == NULL_VALUE_SPACE_HOLDER ? (Stream<? extends V>) Arrays.stream(NULL_ARRAY) : Stream.of((V) nv)
+                            nv == NULL_VALUE_SPACE_HOLDER ? Stream.of((V) null) : Stream.of((V) nv)
                     ).iterator();
                 }
             }
