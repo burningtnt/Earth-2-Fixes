@@ -10,16 +10,15 @@ import java.util.stream.Stream;
 public final class ConcurrentNullableMapWrapper<K, V> implements Map<K, V> {
     private static final Object NULL_VALUE_SPACE_HOLDER = new Object();
     private static final Object[] NULL_ARRAY = new Object[]{null};
-
-    public static <K, V> Map<K, V> wrap(Map<K, V> delegate) {
-        return new ConcurrentNullableMapWrapper<>(delegate);
-    }
-
-    private volatile Object nullValue = null;
     private final Map<K, Object> delegate;
+    private volatile Object nullValue = null;
 
     private ConcurrentNullableMapWrapper(Map<K, V> delegate) {
         this.delegate = (Map<K, Object>) delegate;
+    }
+
+    public static <K, V> Map<K, V> wrap(Map<K, V> delegate) {
+        return new ConcurrentNullableMapWrapper<>(delegate);
     }
 
     @Override

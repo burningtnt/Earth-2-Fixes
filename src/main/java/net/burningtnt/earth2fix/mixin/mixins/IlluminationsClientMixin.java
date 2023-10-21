@@ -1,7 +1,7 @@
 package net.burningtnt.earth2fix.mixin.mixins;
 
 import ladysnake.illuminations.client.IlluminationsClient;
-import net.burningtnt.earth2fix.Features;
+import net.burningtnt.earth2fix.switcher.Features;
 import net.minecraft.particles.BasicParticleType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

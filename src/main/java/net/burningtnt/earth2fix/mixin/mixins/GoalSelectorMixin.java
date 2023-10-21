@@ -12,14 +12,15 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.function.Supplier;
 
 @Mixin(GoalSelector.class)
 public class GoalSelectorMixin {
-    @Mutable
     @Shadow
     @Final
+    @Mutable
     private Set<PrioritizedGoal> availableGoals;
 
     @Inject(
@@ -29,6 +30,6 @@ public class GoalSelectorMixin {
             )
     )
     private void earth2fixes$availableGoalsCMEFix(Supplier<IProfiler> p_i231546_1_, CallbackInfo ci) {
-        this.availableGoals = Collections.synchronizedSet(availableGoals);
+        this.availableGoals = Collections.synchronizedSet(new LinkedHashSet<>());
     }
 }

@@ -1,13 +1,13 @@
 package net.burningtnt.earth2fix.mixin.transformer;
 
 import cpw.mods.modlauncher.api.ITransformer;
-import net.burningtnt.earth2fix.Features;
+import net.burningtnt.earth2fix.switcher.ISwitcher;
 import org.objectweb.asm.tree.ClassNode;
 
 public interface IFeatureControlledClassNodeTransformer {
     ITransformer.Target getTarget();
 
-    Features getSwitcher();
+    ISwitcher getSwitcher();
 
     void transform(ClassNode classNode);
 }

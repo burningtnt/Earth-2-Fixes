@@ -1,8 +1,8 @@
 package net.burningtnt.earth2fix.mixin.transformer.impl;
 
 import cpw.mods.modlauncher.api.ITransformer;
-import net.burningtnt.earth2fix.Features;
 import net.burningtnt.earth2fix.mixin.transformer.IFeatureControlledClassNodeTransformer;
+import net.burningtnt.earth2fix.switcher.ISwitcher;
 import org.objectweb.asm.tree.ClassNode;
 
 public class MixinWorldTransformer implements IFeatureControlledClassNodeTransformer {
@@ -12,8 +12,8 @@ public class MixinWorldTransformer implements IFeatureControlledClassNodeTransfo
     }
 
     @Override
-    public Features getSwitcher() {
-        return Features.BLOCK_SWAP_NPE_FIX;
+    public ISwitcher getSwitcher() {
+        return ISwitcher.ofEnabled();
     }
 
     @Override

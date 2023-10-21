@@ -3,17 +3,16 @@ package net.burningtnt.earth2fix.utils;
 import java.util.Map;
 
 public final class NullableMapEntry<K, V> implements Map.Entry<K, V> {
-    public static <K, V> Map.Entry<K, V> of(K key, V value) {
-        return new NullableMapEntry<>(key, value);
-    }
-
     private final K key;
-
     private final V value;
 
     public NullableMapEntry(K key, V value) {
         this.key = key;
         this.value = value;
+    }
+
+    public static <K, V> Map.Entry<K, V> of(K key, V value) {
+        return new NullableMapEntry<>(key, value);
     }
 
     @Override

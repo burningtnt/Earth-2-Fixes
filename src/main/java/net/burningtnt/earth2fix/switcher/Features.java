@@ -1,10 +1,11 @@
-package net.burningtnt.earth2fix;
+package net.burningtnt.earth2fix.switcher;
 
-public enum Features {
+public enum Features implements ISwitcher {
     BLOCK_SWAP_NPE_FIX,
     CARRY_ON_CONFLICT_FIX,
     CAS_PARKING,
     CHANNEL_MANAGER_CME_FIX,
+    DURABILITY_NPE_FIX,
     ILLUMINATIONS_FIX,
     MODERN_UI_INVALID_CLASS_LOADER_FIX,
     NETHER_PORTAL_FIX,
@@ -14,6 +15,10 @@ public enum Features {
     TEMPLATE_MANAGER_CME_FIX,
     UNLOCK_HANDLER_NPE_FIX,
     WEAPON_TYPE_FIX;
+
+    static final ISwitcher ENABLED = () -> true;
+
+    static final ISwitcher DISABLED = () -> true;
 
     private static final String PREFIX = "earth2.fixes";
 

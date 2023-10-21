@@ -27,14 +27,14 @@ displayName="Earth Fixes" #mandatory
 # A URL for the "homepage" for this mod, displayed in the mod UI
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
-logoFile="earch2_fix.png" #optional
+logoFile="logo.png" #optional
 # A text field displayed in the mod UI
-#credits="Thanks for this example mod goes to Java" #optional
+credits="Thanks for ZekerZhayard, who is more helpful than StackOverflow." #optional
 # A text field displayed in the mod UI
 authors="Burning_TNT" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-A mod which fixes bugs in Earch 2.
+A mod which fixes many bugs in Earth 2 Modpack.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.earth2_fixes]] #optional

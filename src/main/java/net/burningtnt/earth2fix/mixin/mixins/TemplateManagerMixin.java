@@ -1,7 +1,7 @@
 package net.burningtnt.earth2fix.mixin.mixins;
 
 import com.mojang.datafixers.DataFixer;
-import net.burningtnt.earth2fix.Features;
+import net.burningtnt.earth2fix.switcher.Features;
 import net.burningtnt.earth2fix.utils.ConcurrentNullableMapWrapper;
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;

@@ -1,6 +1,6 @@
 package net.burningtnt.earth2fix.mixin.mixins;
 
-import net.burningtnt.earth2fix.Features;
+import net.burningtnt.earth2fix.switcher.Features;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

@@ -15,6 +15,7 @@
     "ThreadTaskExecutorMixin",
     "UnlockHandlerMixin",
     "WorldMixin",
-    "stevemodel.SteveModelMixin0"
+    "stevemodel.SteveModelMixin0",
+    "WearableHelperMixin"
   ]
 }

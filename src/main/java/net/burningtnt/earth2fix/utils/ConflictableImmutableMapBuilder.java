@@ -10,12 +10,7 @@ import java.util.Random;
 
 public final class ConflictableImmutableMapBuilder {
     private static final Random RANDOM = new Random();
-
-    private ConflictableImmutableMapBuilder() {
-    }
-
     private static final Field entriesField;
-
     private static final Field sizeField;
 
     static {
@@ -28,6 +23,9 @@ public final class ConflictableImmutableMapBuilder {
         } catch (NoSuchFieldException e) {
             throw new RuntimeException("Cannot fix 'tschipp.carryon.client.event.RenderEvents.onRenderWorld'.", e);
         }
+    }
+
+    private ConflictableImmutableMapBuilder() {
     }
 
     @SuppressWarnings("unchecked")

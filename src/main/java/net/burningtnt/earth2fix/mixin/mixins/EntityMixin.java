@@ -1,6 +1,9 @@
 package net.burningtnt.earth2fix.mixin.mixins;
 
-import net.burningtnt.earth2fix.Features;
+import com.google.common.base.MoreObjects;
+import net.burningtnt.earth2fix.Earth2Fixes;
+import net.burningtnt.earth2fix.switcher.Features;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.PortalInfo;
 import net.minecraft.block.PortalSize;
 import net.minecraft.entity.Entity;
@@ -26,7 +29,14 @@ public final class EntityMixin {
     )
     private PortalInfo earch2fixes$fixInvalidBlockState(ServerWorld serverWorld, TeleportationRepositioner.Result result, Direction.Axis axis, Vector3d vector3d1, EntitySize entitySize, Vector3d vector3d2, float f1, float f2) {
         if (Features.NETHER_PORTAL_FIX.isEnabled()) {
-            if (!serverWorld.getBlockState(result.minCorner).hasProperty(BlockStateProperties.HORIZONTAL_AXIS)) {
+            BlockState blockState = serverWorld.getBlockState(result.minCorner);
+            if (!blockState.hasProperty(BlockStateProperties.HORIZONTAL_AXIS)) {
+                Earth2Fixes.getLogger().info(String.format(
+                        "Portal at {%s} is invalid because it's a %s in level %s. A new portal is generated in order not to crash Minecrarft.",
+                        MoreObjects.toStringHelper(result).add("minCorner", result.minCorner).add("", result.axis1Size).add("", result.axis2Size),
+                        blockState,
+                        serverWorld
+                ));
                 return null;
             }
         }

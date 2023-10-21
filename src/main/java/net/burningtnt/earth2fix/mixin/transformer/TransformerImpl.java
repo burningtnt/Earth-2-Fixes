@@ -19,7 +19,7 @@ public class TransformerImpl implements ITransformer<ClassNode> {
         Set<Target> targets0 = new HashSet<>();
 
         for (IFeatureControlledClassNodeTransformer transformer : transformersList) {
-            if (transformer.getSwitcher() == null || transformer.getSwitcher().isEnabled()) {
+            if (transformer.getSwitcher().isEnabled()) {
                 Target target = transformer.getTarget();
                 transformers0.put(target.getClassName(), transformer);
                 targets0.add(target);

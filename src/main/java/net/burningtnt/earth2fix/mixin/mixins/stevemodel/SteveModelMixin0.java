@@ -4,7 +4,7 @@ import com.elfmcys.yesstevemodel.oooO000o00OoOOoO000o000O;
 import com.tac.guns.common.Gun;
 import com.tac.guns.common.WeaponType;
 import net.burningtnt.earth2fix.Earth2Fixes;
-import net.burningtnt.earth2fix.Features;
+import net.burningtnt.earth2fix.switcher.Features;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;

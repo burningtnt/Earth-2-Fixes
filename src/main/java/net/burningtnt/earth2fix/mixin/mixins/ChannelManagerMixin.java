@@ -1,6 +1,6 @@
 package net.burningtnt.earth2fix.mixin.mixins;
 
-import net.burningtnt.earth2fix.Features;
+import net.burningtnt.earth2fix.switcher.Features;
 import net.minecraft.client.audio.ChannelManager;
 import net.minecraft.client.audio.SoundSystem;
 import org.spongepowered.asm.mixin.Final;

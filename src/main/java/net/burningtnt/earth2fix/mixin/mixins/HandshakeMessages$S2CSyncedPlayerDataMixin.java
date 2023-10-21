@@ -4,7 +4,7 @@ import com.mrcrayfish.obfuscate.common.data.SyncedDataKey;
 import com.mrcrayfish.obfuscate.common.data.SyncedPlayerData;
 import com.mrcrayfish.obfuscate.network.HandshakeMessages;
 import net.burningtnt.earth2fix.Earth2Fixes;
-import net.burningtnt.earth2fix.Features;
+import net.burningtnt.earth2fix.switcher.Features;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import org.spongepowered.asm.mixin.Mixin;
