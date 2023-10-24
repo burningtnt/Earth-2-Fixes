@@ -16,10 +16,6 @@ public enum Features implements ISwitcher {
     UNLOCK_HANDLER_NPE_FIX,
     WEAPON_TYPE_FIX;
 
-    static final ISwitcher ENABLED = () -> true;
-
-    static final ISwitcher DISABLED = () -> true;
-
     private static final String PREFIX = "earth2.fixes";
 
     private final boolean enabled;

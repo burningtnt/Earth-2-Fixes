@@ -13,7 +13,7 @@ public class MixinWorldTransformer implements IFeatureControlledClassNodeTransfo
 
     @Override
     public ISwitcher getSwitcher() {
-        return ISwitcher.ofEnabled();
+        return ISwitcher.ENABLED;
     }
 
     @Override
