@@ -4,7 +4,6 @@ public enum Features implements ISwitcher {
     BLOCK_SWAP_NPE_FIX,
     BULLET_RENDER_FIX,
     CARRY_ON_CONFLICT_FIX,
-    CAS_PARKING,
     CHANNEL_MANAGER_CME_FIX,
     DURABILITY_NPE_FIX,
     ILLUMINATIONS_FIX,
