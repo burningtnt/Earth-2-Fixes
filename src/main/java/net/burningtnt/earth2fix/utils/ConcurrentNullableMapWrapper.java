@@ -30,7 +30,7 @@ public final class ConcurrentNullableMapWrapper<K, V> implements Map<K, V> {
 
     @Override
     public boolean isEmpty() {
-        return this.nullValue == NULL_VALUE_SPACE_HOLDER && this.delegate.isEmpty();
+        return this.nullValue != NULL_VALUE_SPACE_HOLDER && this.delegate.isEmpty();
     }
 
     @Override
