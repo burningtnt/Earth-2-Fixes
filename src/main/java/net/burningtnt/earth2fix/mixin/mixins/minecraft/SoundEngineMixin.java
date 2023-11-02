@@ -2,7 +2,7 @@ package net.burningtnt.earth2fix.mixin.mixins.minecraft;
 
 import com.google.common.collect.Multimap;
 import net.burningtnt.earth2fix.controller.Features;
-import net.burningtnt.earth2fix.utils.CMEFixes;
+import net.burningtnt.earth2fix.utils.ConcurrentCollections;
 import net.minecraft.client.GameSettings;
 import net.minecraft.client.audio.*;
 import net.minecraft.resources.IResourceManager;
@@ -74,7 +74,7 @@ public abstract class SoundEngineMixin {
             )
     )
     private static void earth2fixes$fixStaticCME(CallbackInfo ci) {
-        ONLY_WARN_ONCE = CMEFixes.ofNullableSet();
+        ONLY_WARN_ONCE = ConcurrentCollections.ofNullableSet();
     }
 
     @Inject(
@@ -88,13 +88,13 @@ public abstract class SoundEngineMixin {
             return;
         }
 
-        this.instanceToChannel = CMEFixes.ofNullableMap();
-        this.instanceBySource = CMEFixes.ofNullableHashMultiMap();
-        this.tickingSounds = CMEFixes.ofList();
-        this.queuedSounds = CMEFixes.ofNullableMap();
-        this.soundDeleteTime = CMEFixes.ofNullableMap();
-        this.listeners = CMEFixes.ofList();
-        this.queuedTickableSounds = CMEFixes.ofList();
-        this.preloadQueue = CMEFixes.ofList();
+        this.instanceToChannel = ConcurrentCollections.ofNullableMap();
+        this.instanceBySource = ConcurrentCollections.ofNullableHashMultiMap();
+        this.tickingSounds = ConcurrentCollections.ofList();
+        this.queuedSounds = ConcurrentCollections.ofNullableMap();
+        this.soundDeleteTime = ConcurrentCollections.ofNullableMap();
+        this.listeners = ConcurrentCollections.ofList();
+        this.queuedTickableSounds = ConcurrentCollections.ofList();
+        this.preloadQueue = ConcurrentCollections.ofList();
     }
 }

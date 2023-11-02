@@ -10,8 +10,8 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class CMEFixes {
-    private CMEFixes() {
+public final class ConcurrentCollections {
+    private ConcurrentCollections() {
     }
 
     public static <K, V> Map<K, V> ofNullableMap() {
@@ -27,6 +27,6 @@ public final class CMEFixes {
     }
 
     public static <K, V> SetMultimap<K, V> ofNullableHashMultiMap() {
-        return Multimaps.newSetMultimap(ofNullableMap(), CMEFixes::ofNullableSet);
+        return Multimaps.newSetMultimap(ofNullableMap(), ConcurrentCollections::ofNullableSet);
     }
 }
