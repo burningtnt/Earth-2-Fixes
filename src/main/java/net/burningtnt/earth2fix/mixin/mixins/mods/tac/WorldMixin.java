@@ -1,4 +1,4 @@
-package net.burningtnt.earth2fix.mixin.mixins.minecraft;
+package net.burningtnt.earth2fix.mixin.mixins.mods.tac;
 
 import corgitaco.blockswap.BlockSwap;
 import it.unimi.dsi.fastutil.objects.Reference2ReferenceOpenHashMap;

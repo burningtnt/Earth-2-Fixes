@@ -11,7 +11,7 @@
     "minecraft.NetworkManagerMixin",
     "minecraft.RenderType$TypeMixin",
     "minecraft.TemplateManagerMixin",
-    "minecraft.WorldMixin",
+    "mods.tac.WorldMixin",
     "mods.carryon.RenderEventsMixin",
     "mods.illunimations.IlluminationsClientMixin",
     "mods.losttrinkets.UnlockHandlerMixin",

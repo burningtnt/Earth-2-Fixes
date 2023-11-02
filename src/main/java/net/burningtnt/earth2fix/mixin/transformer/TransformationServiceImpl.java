@@ -4,8 +4,8 @@ import cpw.mods.modlauncher.api.IEnvironment;
 import cpw.mods.modlauncher.api.ITransformationService;
 import cpw.mods.modlauncher.api.ITransformer;
 import net.burningtnt.earth2fix.Earth2Fixes;
-import net.burningtnt.earth2fix.mixin.transformer.impls.MixinWorldTransformer;
 import net.burningtnt.earth2fix.controller.Features;
+import net.burningtnt.earth2fix.mixin.transformer.impls.MixinWorldTransformer;
 import net.minecraftforge.fml.loading.ModDirTransformerDiscoverer;
 import org.jetbrains.annotations.NotNull;
 
