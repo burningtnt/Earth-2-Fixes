@@ -1,7 +1,7 @@
-package net.burningtnt.earth2fix.mixin.mixins;
+package net.burningtnt.earth2fix.mixin.mixins.mods.carryon;
 
 import com.google.common.collect.ImmutableMap;
-import net.burningtnt.earth2fix.switcher.Features;
+import net.burningtnt.earth2fix.controller.Features;
 import net.burningtnt.earth2fix.utils.ConflictableImmutableMapBuilder;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.RenderType;

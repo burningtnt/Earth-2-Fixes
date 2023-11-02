@@ -1,7 +1,7 @@
-package net.burningtnt.earth2fix.mixin.mixins;
+package net.burningtnt.earth2fix.mixin.mixins.minecraft;
 
 import it.unimi.dsi.fastutil.objects.ObjectOpenCustomHashSet;
-import net.burningtnt.earth2fix.switcher.Features;
+import net.burningtnt.earth2fix.controller.Features;
 import net.minecraft.client.renderer.RenderType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

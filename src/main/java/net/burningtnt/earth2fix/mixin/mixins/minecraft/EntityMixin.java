@@ -1,8 +1,8 @@
-package net.burningtnt.earth2fix.mixin.mixins;
+package net.burningtnt.earth2fix.mixin.mixins.minecraft;
 
 import com.google.common.base.MoreObjects;
 import net.burningtnt.earth2fix.Earth2Fixes;
-import net.burningtnt.earth2fix.switcher.Features;
+import net.burningtnt.earth2fix.controller.Features;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PortalInfo;
 import net.minecraft.block.PortalSize;

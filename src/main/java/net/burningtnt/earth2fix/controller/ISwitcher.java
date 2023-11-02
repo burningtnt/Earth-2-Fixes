@@ -1,4 +1,4 @@
-package net.burningtnt.earth2fix.switcher;
+package net.burningtnt.earth2fix.controller;
 
 public interface ISwitcher {
     ISwitcher ENABLED = () -> true;

@@ -1,7 +1,7 @@
-package net.burningtnt.earth2fix.mixin.mixins;
+package net.burningtnt.earth2fix.mixin.mixins.minecraft;
 
 import com.mrcrayfish.obfuscate.common.data.SyncedPlayerData;
-import net.burningtnt.earth2fix.switcher.Features;
+import net.burningtnt.earth2fix.controller.Features;
 import net.minecraft.network.NetworkManager;
 import org.apache.logging.log4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;

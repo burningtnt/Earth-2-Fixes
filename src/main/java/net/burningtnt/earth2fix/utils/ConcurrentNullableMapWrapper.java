@@ -19,7 +19,7 @@ public final class ConcurrentNullableMapWrapper<K, V> implements Map<K, V> {
         this.delegate = (Map<K, Object>) delegate;
     }
 
-    public static <K, V> Map<K, V> wrap(Map<K, V> delegate) {
+    public static <K, V> Map<K, V> of(Map<K, V> delegate) {
         return new ConcurrentNullableMapWrapper<>(delegate);
     }
 

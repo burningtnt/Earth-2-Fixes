@@ -1,6 +1,7 @@
-package net.burningtnt.earth2fix.mixin.mixins;
+package net.burningtnt.earth2fix.mixin.mixins.minecraft;
 
-import net.burningtnt.earth2fix.switcher.Features;
+import net.burningtnt.earth2fix.controller.Features;
+import net.burningtnt.earth2fix.utils.CMEFixes;
 import net.minecraft.client.audio.ChannelManager;
 import net.minecraft.client.audio.SoundSystem;
 import org.spongepowered.asm.mixin.Final;
@@ -11,9 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Collections;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executor;
 
 @Mixin(ChannelManager.class)
@@ -31,7 +30,7 @@ public abstract class ChannelManagerMixin {
     )
     private void earth2fixes$wrapChannelsAsSynchronizedSet(SoundSystem p_i50894_1_, Executor p_i50894_2_, CallbackInfo ci) {
         if (Features.CHANNEL_MANAGER_CME_FIX.isEnabled()) {
-            this.channels = Collections.newSetFromMap(new ConcurrentHashMap<>());
+            this.channels = CMEFixes.ofNullableSet();
         }
     }
 

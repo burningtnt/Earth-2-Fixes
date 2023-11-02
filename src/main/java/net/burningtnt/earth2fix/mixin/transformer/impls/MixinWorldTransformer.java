@@ -1,8 +1,8 @@
-package net.burningtnt.earth2fix.mixin.transformer.impl;
+package net.burningtnt.earth2fix.mixin.transformer.impls;
 
 import cpw.mods.modlauncher.api.ITransformer;
 import net.burningtnt.earth2fix.mixin.transformer.IFeatureControlledClassNodeTransformer;
-import net.burningtnt.earth2fix.switcher.ISwitcher;
+import net.burningtnt.earth2fix.controller.ISwitcher;
 import org.objectweb.asm.tree.ClassNode;
 
 public class MixinWorldTransformer implements IFeatureControlledClassNodeTransformer {

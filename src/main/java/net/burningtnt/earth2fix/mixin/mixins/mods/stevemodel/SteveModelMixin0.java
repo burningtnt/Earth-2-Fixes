@@ -1,9 +1,9 @@
-package net.burningtnt.earth2fix.mixin.mixins.stevemodel;
+package net.burningtnt.earth2fix.mixin.mixins.mods.stevemodel;
 
 import com.elfmcys.yesstevemodel.O00OooooooOOo0OoO0Oo0O0O;
 import com.tac.guns.common.Gun;
 import net.burningtnt.earth2fix.Earth2Fixes;
-import net.burningtnt.earth2fix.switcher.Features;
+import net.burningtnt.earth2fix.controller.Features;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;

@@ -1,4 +1,4 @@
-package net.burningtnt.earth2fix.mixin.mixins;
+package net.burningtnt.earth2fix.mixin.mixins.mods.musictrigger;
 
 import mods.thecomputerizer.musictriggers.client.MusicPlayer;
 import mods.thecomputerizer.musictriggers.util.audio.SetVolumeSound;
@@ -6,7 +6,7 @@ import net.burningtnt.earth2fix.Earth2Fixes;
 import net.burningtnt.earth2fix.mixin.mixins.accessors.ChannelManager$EntryAccessor;
 import net.burningtnt.earth2fix.mixin.mixins.accessors.SoundEngineAccessor;
 import net.burningtnt.earth2fix.mixin.mixins.accessors.SoundHandlerAccessor;
-import net.burningtnt.earth2fix.switcher.Features;
+import net.burningtnt.earth2fix.controller.Features;
 import net.minecraft.client.audio.ChannelManager;
 import net.minecraft.client.audio.ISound;
 import net.minecraft.client.audio.SoundEngine;

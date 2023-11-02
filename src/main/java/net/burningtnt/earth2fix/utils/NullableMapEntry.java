@@ -1,12 +1,18 @@
 package net.burningtnt.earth2fix.utils;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.util.Map;
+import java.util.Objects;
 
 public final class NullableMapEntry<K, V> implements Map.Entry<K, V> {
+    @Nullable
     private final K key;
+
+    @Nullable
     private final V value;
 
-    public NullableMapEntry(K key, V value) {
+    public NullableMapEntry(@Nullable K key, @Nullable V value) {
         this.key = key;
         this.value = value;
     }
@@ -16,12 +22,12 @@ public final class NullableMapEntry<K, V> implements Map.Entry<K, V> {
     }
 
     @Override
-    public K getKey() {
+    public @Nullable K getKey() {
         return this.key;
     }
 
     @Override
-    public V getValue() {
+    public @Nullable V getValue() {
         return this.value;
     }
 
@@ -32,15 +38,19 @@ public final class NullableMapEntry<K, V> implements Map.Entry<K, V> {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Map.Entry))
-            return false;
-        Map.Entry<?, ?> e = (Map.Entry<?, ?>) o;
-        return key.equals(e.getKey()) && value.equals(e.getValue());
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        NullableMapEntry<?, ?> that = (NullableMapEntry<?, ?>) o;
+
+        return Objects.equals(key, that.key) && Objects.equals(value, that.value);
     }
 
     @Override
     public int hashCode() {
-        return key.hashCode() ^ value.hashCode();
+        int result = key != null ? key.hashCode() : 0;
+        result = 31 * result + (value != null ? value.hashCode() : 0);
+        return result;
     }
 
     @Override

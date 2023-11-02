@@ -1,7 +1,8 @@
-package net.burningtnt.earth2fix.switcher;
+package net.burningtnt.earth2fix.controller;
 
 public enum Features implements ISwitcher {
     BLOCK_SWAP_NPE_FIX,
+    BULLET_RENDER_FIX,
     CARRY_ON_CONFLICT_FIX,
     CAS_PARKING,
     CHANNEL_MANAGER_CME_FIX,
@@ -9,10 +10,12 @@ public enum Features implements ISwitcher {
     ILLUMINATIONS_FIX,
     MODERN_UI_INVALID_CLASS_LOADER_FIX,
     MUSIC_PLAYER_NPE_FIX,
+    MUSIC_TRIGGER_CLIENT_DISCONNECTED_NPE_FIX,
     NETHER_PORTAL_FIX,
     NETWORK_MANAGER_LOG_FIX,
     OBFUSCATE_PLAYER_DATA_FIX,
     RENDER_TYPE_CME_FIX,
+    SOUND_ENGINE_CME_FIX,
     TEMPLATE_MANAGER_CME_FIX,
     UNLOCK_HANDLER_NPE_FIX,
     WEAPON_TYPE_FIX;

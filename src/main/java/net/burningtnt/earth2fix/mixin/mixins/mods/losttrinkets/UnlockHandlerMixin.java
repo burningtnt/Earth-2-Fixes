@@ -1,7 +1,7 @@
-package net.burningtnt.earth2fix.mixin.mixins;
+package net.burningtnt.earth2fix.mixin.mixins.mods.losttrinkets;
 
 import net.burningtnt.earth2fix.Earth2Fixes;
-import net.burningtnt.earth2fix.switcher.Features;
+import net.burningtnt.earth2fix.controller.Features;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import org.spongepowered.asm.mixin.Mixin;
