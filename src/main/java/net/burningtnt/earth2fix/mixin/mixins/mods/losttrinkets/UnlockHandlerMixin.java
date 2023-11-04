@@ -1,6 +1,6 @@
 package net.burningtnt.earth2fix.mixin.mixins.mods.losttrinkets;
 
-import net.burningtnt.earth2fix.Earth2Fixes;
+import net.burningtnt.earth2fix.Logging;
 import net.burningtnt.earth2fix.controller.Features;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraftforge.event.entity.player.BonemealEvent;
@@ -27,7 +27,7 @@ public class UnlockHandlerMixin {
 
         PlayerEntity playerEntity = event.getPlayer();
         if (playerEntity == null || playerEntity.level == null) {
-            Earth2Fixes.getLogger().info("LostTrinkets is prevented to unlock FARM_HARVEST on player");
+            Logging.getLogger().info("LostTrinkets is prevented to unlock FARM_HARVEST on player");
             ci.cancel();
         }
     }

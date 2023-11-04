@@ -3,7 +3,7 @@ package net.burningtnt.earth2fix.mixin.mixins.mods.obfuscate;
 import com.mrcrayfish.obfuscate.common.data.SyncedDataKey;
 import com.mrcrayfish.obfuscate.common.data.SyncedPlayerData;
 import com.mrcrayfish.obfuscate.network.HandshakeMessages;
-import net.burningtnt.earth2fix.Earth2Fixes;
+import net.burningtnt.earth2fix.Logging;
 import net.burningtnt.earth2fix.controller.Features;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
@@ -63,7 +63,7 @@ public class HandshakeMessages$S2CSyncedPlayerDataMixin {
 
     @Unique
     private static void earth2fixes$logMessage(List<SyncedDataKey<?>> dataKeys, SyncedDataKey<?> currentDataKey, Throwable throwable, Map<ResourceLocation, Integer> currentKeyMap) {
-        Earth2Fixes.getLogger().warn(String.format(
+        Logging.getLogger().warn(String.format(
                 "Cannot read data key '%s'. Currently, the existed key is {%s}, however, {%s} is expected.",
                 currentDataKey.getKey(),
                 currentKeyMap.entrySet().stream()

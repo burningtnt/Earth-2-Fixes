@@ -2,7 +2,7 @@ package net.burningtnt.earth2fix.mixin.mixins.mods.tac;
 
 import corgitaco.blockswap.BlockSwap;
 import it.unimi.dsi.fastutil.objects.Reference2ReferenceOpenHashMap;
-import net.burningtnt.earth2fix.Earth2Fixes;
+import net.burningtnt.earth2fix.Logging;
 import net.burningtnt.earth2fix.controller.Features;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -36,10 +36,10 @@ public abstract class WorldMixin {
                         cir.setReturnValue(this.setBlock(pos, BlockSwap.remapState(state), i, flags));
                     }
                 } else {
-                    Earth2Fixes.getLogger().warn("The return value of state.getBlock() is null! Block Swapper is disabled in order not to crash Minecraft.");
+                    Logging.getLogger().warn("The return value of state.getBlock() is null! Block Swapper is disabled in order not to crash Minecraft.");
                 }
             } else {
-                Earth2Fixes.getLogger().warn("Field corgitaco.blockswap.BlockSwap.blockToBlockMap is null! Block Swapper is disabled in order not to crash Minecraft.");
+                Logging.getLogger().warn("Field corgitaco.blockswap.BlockSwap.blockToBlockMap is null! Block Swapper is disabled in order not to crash Minecraft.");
             }
         }
     }

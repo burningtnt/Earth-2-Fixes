@@ -1,6 +1,6 @@
 package net.burningtnt.earth2fix.mixin;
 
-import net.burningtnt.earth2fix.Earth2Fixes;
+import net.burningtnt.earth2fix.Logging;
 import net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileLocator;
 import net.minecraftforge.fml.loading.moddiscovery.ModFile;
 import net.minecraftforge.forgespi.locating.IModFile;
@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class ModLocatorImpl extends AbstractJarFileLocator {
     public List<IModFile> scanMods() {
-        Earth2Fixes.getLogger().info("Earth 2 Fixes Mod Locator is invoked.");
+        Logging.getLogger().info("Earth 2 Fixes Mod Locator is invoked.");
 
         List<IModFile> list = new ArrayList<>();
         try {
@@ -25,7 +25,7 @@ public class ModLocatorImpl extends AbstractJarFileLocator {
                 list.add(file);
             }
         } catch (URISyntaxException e) {
-            Earth2Fixes.getLogger().error("Cannot inject Earth 2 Fixes Mod to forge.", e);
+            Logging.getLogger().error("Cannot inject Earth 2 Fixes Mod to forge.", e);
         }
         return list;
     }

@@ -20,7 +20,7 @@ public final class RenderEventsMixin {
             ),
             remap = false
     )
-    private ImmutableMap<RenderType, BufferBuilder> earch2fixes$fixConflict(ImmutableMap.Builder<RenderType, BufferBuilder> instance) {
+    private ImmutableMap<RenderType, BufferBuilder> earth2fixes$fixConflict(ImmutableMap.Builder<RenderType, BufferBuilder> instance) {
         if (Features.CARRY_ON_CONFLICT_FIX.isEnabled()) {
             return ConflictableImmutableMapBuilder.safeBuild(instance);
         } else {

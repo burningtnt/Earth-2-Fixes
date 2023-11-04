@@ -3,7 +3,7 @@ package net.burningtnt.earth2fix.mixin.mixins.mods.tac;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.tac.guns.client.BulletTrail;
 import com.tac.guns.client.handler.BulletTrailRenderingHandler;
-import net.burningtnt.earth2fix.Earth2Fixes;
+import net.burningtnt.earth2fix.Logging;
 import net.burningtnt.earth2fix.controller.Features;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -28,7 +28,7 @@ public abstract class BulletTrailRenderingHandlerMixin {
             try {
                 ((BulletTrailRenderingHandlerMixin) (Object) instance).renderBulletTrail(builder, posSize, bulletType);
             } catch (Throwable t) {
-                Earth2Fixes.getLogger().warn("Cannot render bullets.", t);
+                Logging.getLogger().warn("Cannot render bullets.", t);
             }
         } else {
             ((BulletTrailRenderingHandlerMixin) (Object) instance).renderBulletTrail(builder, posSize, bulletType);

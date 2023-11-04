@@ -2,7 +2,7 @@ package net.burningtnt.earth2fix.mixin.mixins.mods.musictrigger;
 
 import mods.thecomputerizer.musictriggers.client.MusicPlayer;
 import mods.thecomputerizer.musictriggers.util.audio.SetVolumeSound;
-import net.burningtnt.earth2fix.Earth2Fixes;
+import net.burningtnt.earth2fix.Logging;
 import net.burningtnt.earth2fix.controller.Features;
 import net.burningtnt.earth2fix.mixin.mixins.accessors.ChannelManager$EntryAccessor;
 import net.burningtnt.earth2fix.mixin.mixins.accessors.SoundEngineAccessor;
@@ -42,30 +42,30 @@ public class MusicPlayerMixin {
         }
 
         if (sh == null) {
-            Earth2Fixes.getLogger().warn("MusicPlayer is disabled because MusicPlayer.sh is null.");
+            Logging.getLogger().warn("MusicPlayer is disabled because MusicPlayer.sh is null.");
             ci.cancel();
             return;
         }
         SoundEngine soundEngine = ((SoundHandlerAccessor) sh).getSoundEngine();
         if (soundEngine == null) {
-            Earth2Fixes.getLogger().warn("MusicPlayer is disabled because MusicPlayer.sh.soundEngine is null.");
+            Logging.getLogger().warn("MusicPlayer is disabled because MusicPlayer.sh.soundEngine is null.");
             ci.cancel();
             return;
         }
         Map<ISound, ChannelManager.Entry> map = ((SoundEngineAccessor) soundEngine).getInstanceToChannel();
         if (map == null) {
-            Earth2Fixes.getLogger().warn("MusicPlayer is disabled because MusicPlayer.sh.soundEngine.instanceToChannel is null.");
+            Logging.getLogger().warn("MusicPlayer is disabled because MusicPlayer.sh.soundEngine.instanceToChannel is null.");
             ci.cancel();
             return;
         }
         ChannelManager.Entry entry = map.get(curMusic);
         if (entry == null) {
-            Earth2Fixes.getLogger().warn("MusicPlayer is disabled because MusicPlayer.sh.soundEngine.instanceToChannel.get(curMusic) is null.");
+            Logging.getLogger().warn("MusicPlayer is disabled because MusicPlayer.sh.soundEngine.instanceToChannel.get(curMusic) is null.");
             ci.cancel();
             return;
         }
         if (((ChannelManager$EntryAccessor) entry).getChannel() == null) {
-            Earth2Fixes.getLogger().warn("MusicPlayer is disabled because MusicPlayer.sh.soundEngine.instanceToChannel.get(curMusic).channel is null.");
+            Logging.getLogger().warn("MusicPlayer is disabled because MusicPlayer.sh.soundEngine.instanceToChannel.get(curMusic).channel is null.");
             ci.cancel();
         }
     }

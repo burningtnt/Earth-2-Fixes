@@ -1,7 +1,7 @@
 package net.burningtnt.earth2fix.utils;
 
 import com.google.common.collect.ImmutableMap;
-import net.burningtnt.earth2fix.Earth2Fixes;
+import net.burningtnt.earth2fix.Logging;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -58,7 +58,7 @@ public final class ConflictableImmutableMapBuilder {
                 if (!conflictValue.equals(entry.getValue())) {
                     // Oh no, it's a conflict.
                     boolean flag = RANDOM.nextBoolean();
-                    Earth2Fixes.getLogger().warn(
+                    Logging.getLogger().warn(
                             String.format(
                                     "Multiple entries in com.google.common.collect.ImmutableMap with the same key and different values are detected by Earth 2 Fixes.\n" +
                                             "  Key     : %s\n" +

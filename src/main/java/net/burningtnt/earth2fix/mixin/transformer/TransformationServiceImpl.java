@@ -3,11 +3,9 @@ package net.burningtnt.earth2fix.mixin.transformer;
 import cpw.mods.modlauncher.api.IEnvironment;
 import cpw.mods.modlauncher.api.ITransformationService;
 import cpw.mods.modlauncher.api.ITransformer;
-import net.burningtnt.earth2fix.Earth2Fixes;
-import net.burningtnt.earth2fix.controller.CrashReportDetailImpl;
+import net.burningtnt.earth2fix.Logging;
 import net.burningtnt.earth2fix.controller.Features;
 import net.burningtnt.earth2fix.mixin.transformer.impls.MixinWorldTransformer;
-import net.minecraftforge.fml.CrashReportExtender;
 import net.minecraftforge.fml.loading.ModDirTransformerDiscoverer;
 import org.jetbrains.annotations.NotNull;
 
@@ -29,20 +27,18 @@ public class TransformationServiceImpl implements ITransformationService {
 
     @Override
     public void initialize(@NotNull IEnvironment environment) {
-        Earth2Fixes.getLogger().info("Earth 2 Fixes Transformer Service is initialized.");
+        Logging.getLogger().info("Earth 2 Fixes Transformer Service is initialized.");
 
         for (Features options : Features.values()) {
-            Earth2Fixes.getLogger().info(String.format("Earth2 Fix Option '%s' is %s.", options.name(), options.isEnabled() ? "enabled" : "disabled"));
+            Logging.getLogger().info(String.format("Earth2 Fix Option '%s' is %s.", options.name(), options.isEnabled() ? "enabled" : "disabled"));
         }
 
         try {
             ModDirTransformerDiscoverer.getExtraLocators().add(Path.of(TransformationServiceImpl.class.getProtectionDomain().getCodeSource().getLocation().toURI()));
-            Earth2Fixes.getLogger().info("Successfully inject the custom ModLocator into Forge.");
+            Logging.getLogger().info("Successfully inject the custom ModLocator into Forge.");
         } catch (URISyntaxException e) {
-            Earth2Fixes.getLogger().error("An unexpected issue occurred while injecting the custom ModLocator into Forge.", e);
+            Logging.getLogger().error("An unexpected issue occurred while injecting the custom ModLocator into Forge.", e);
         }
-
-        CrashReportExtender.registerCrashCallable(new CrashReportDetailImpl());
     }
 
     @Override
@@ -51,7 +47,7 @@ public class TransformationServiceImpl implements ITransformationService {
 
     @Override
     public void onLoad(@NotNull IEnvironment env, @NotNull Set<String> otherServices) {
-        Earth2Fixes.getLogger().info("Earth 2 Fixes Transformer Service is loaded.");
+        Logging.getLogger().info("Earth 2 Fixes Transformer Service is loaded.");
     }
 
     @Override

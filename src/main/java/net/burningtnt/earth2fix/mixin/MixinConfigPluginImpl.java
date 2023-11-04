@@ -1,6 +1,6 @@
 package net.burningtnt.earth2fix.mixin;
 
-import net.burningtnt.earth2fix.Earth2Fixes;
+import net.burningtnt.earth2fix.Logging;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class MixinConfigPluginImpl implements IMixinConfigPlugin {
     @Override
     public void onLoad(String mixinPackage) {
-        Earth2Fixes.getLogger().info("Earth 2 Fixes Mixin Config Plugin is loaded.");
+        Logging.getLogger().info("Earth 2 Fixes Mixin Config Plugin is loaded.");
     }
 
     @Override

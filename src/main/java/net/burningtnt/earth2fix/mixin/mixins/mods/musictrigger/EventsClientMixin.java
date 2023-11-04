@@ -2,7 +2,7 @@ package net.burningtnt.earth2fix.mixin.mixins.mods.musictrigger;
 
 import mods.thecomputerizer.musictriggers.client.EventsClient;
 import mods.thecomputerizer.musictriggers.client.MusicPicker;
-import net.burningtnt.earth2fix.Earth2Fixes;
+import net.burningtnt.earth2fix.Logging;
 import net.burningtnt.earth2fix.controller.Features;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,7 +22,7 @@ public class EventsClientMixin {
     )
     private static void earth2fixes$fixNPE(PlayerEvent.PlayerLoggedOutEvent e, CallbackInfo ci) {
         if (Features.MUSIC_TRIGGER_CLIENT_DISCONNECTED_NPE_FIX.isEnabled() && MusicPicker.mc == null) {
-            Earth2Fixes.getLogger().warn("MusicTriggers is blocked to fire event 'clientDisconnected' because MusicPicker.mc is null.");
+            Logging.getLogger().warn("MusicTriggers is blocked to fire event 'clientDisconnected' because MusicPicker.mc is null.");
             ci.cancel();
         }
     }
