@@ -4,8 +4,10 @@ import cpw.mods.modlauncher.api.IEnvironment;
 import cpw.mods.modlauncher.api.ITransformationService;
 import cpw.mods.modlauncher.api.ITransformer;
 import net.burningtnt.earth2fix.Earth2Fixes;
+import net.burningtnt.earth2fix.controller.CrashReportDetailImpl;
 import net.burningtnt.earth2fix.controller.Features;
 import net.burningtnt.earth2fix.mixin.transformer.impls.MixinWorldTransformer;
+import net.minecraftforge.fml.CrashReportExtender;
 import net.minecraftforge.fml.loading.ModDirTransformerDiscoverer;
 import org.jetbrains.annotations.NotNull;
 
@@ -39,6 +41,8 @@ public class TransformationServiceImpl implements ITransformationService {
         } catch (URISyntaxException e) {
             Earth2Fixes.getLogger().error("An unexpected issue occurred while injecting the custom ModLocator into Forge.", e);
         }
+
+        CrashReportExtender.registerCrashCallable(new CrashReportDetailImpl());
     }
 
     @Override
