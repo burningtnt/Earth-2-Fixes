@@ -1,6 +1,6 @@
 {
-  "plugin": "net.burningtnt.earth2fix.mixin.MixinConfigPluginImpl",
-  "package": "net.burningtnt.earth2fix.mixin.mixins",
+  "plugin": "net.burningtnt.earth2fix.core.MixinConfigPluginImpl",
+  "package": "net.burningtnt.earth2fix.core.mixins",
   "mixins": [
     "accessors.ChannelManager$EntryAccessor",
     "accessors.SoundEngineAccessor",

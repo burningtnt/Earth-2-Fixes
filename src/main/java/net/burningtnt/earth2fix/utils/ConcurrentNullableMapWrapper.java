@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
 
-@SuppressWarnings({"unchecked", "SuspiciousToArrayCall"})
+@SuppressWarnings({"unchecked"})
 public final class ConcurrentNullableMapWrapper<K, V> implements Map<K, V> {
     private static final Object NULL_VALUE_SPACE_HOLDER = new Object();
     private final Map<K, Object> delegate;

@@ -1,7 +1,7 @@
 package net.burningtnt.earth2fix;
 
 import com.tac.guns.common.WeaponType;
-import net.burningtnt.earth2fix.controller.CrashReportDetailImpl;
+import net.burningtnt.earth2fix.controller.Features;
 import net.minecraftforge.fml.CrashReportExtender;
 import net.minecraftforge.fml.common.Mod;
 
@@ -20,6 +20,16 @@ public class Earth2Fixes {
             Logging.getLogger().warn("WeaponType isn't found.", e);
         }
 
-        CrashReportExtender.registerCrashCallable(new CrashReportDetailImpl());
+        CrashReportExtender.registerCrashCallable("Earth 2 Fixes Options", () -> String.format(
+                "Enabled Features: [%s]. DisabledFeatures: [%s].",
+                Arrays.stream(Features.values())
+                        .filter(Features::isEnabled)
+                        .map(Features::name)
+                        .collect(Collectors.joining(", ")),
+                Arrays.stream(Features.values())
+                        .filter(features -> !features.isEnabled())
+                        .map(Features::name)
+                        .collect(Collectors.joining(", "))
+        ));
     }
 }

@@ -19,9 +19,9 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.0'
-group = 'net.burningtnt.earth2_fix' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'earth2_fix'
+version = new Date().format("yyyy.MM.dd-HH.mm")
+group = 'net.burningtnt.earth2_fixes' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = '[模组兼容性修复] Earth 2 Fixes'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(11) // Earth 2 Modpack should use Java 11.
 
@@ -157,7 +157,11 @@ dependencies {
     for (File file : rootProject.file("libs").listFiles()) {
         String name = file.getName()
         if (name.endsWith(".jar")) {
-//            implementation fg.deobf("io.earth2:${name.substring(0, name.length() - ".jar".length())}:1.6")
+//            System.out.print("$name -> ")
+//            String[] names = name.substring(0, name.length() - 4).split("-", 2)
+//            System.out.println("libs:${names[0]}:${names[1]}")
+//            implementation fg.deobf("libs:${names[0]}:${names[1]}")
+////            implementation fg.deobf("libs:${name.substring(0, name.length() - 4)}:123")
             implementation fg.deobf(files("libs/${name}"))
         }
     }
@@ -167,13 +171,13 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "earth2_fixes",
+                "Specification-Title"     : "Earth 2 Fixes",
                 "Specification-Vendor"    : "Burning_TNT",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
-                "Implementation-Title"    : "earth2_fixes",
-                "Implementation-Version"  : "${version}",
+                "Implementation-Title"    : "Earth 2 Fixes",
+                "Implementation-Version"  : version,
                 "Implementation-Vendor"   : "Burning_TNT",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "Implementation-Timestamp": version,
                 "TweakOrder"              : "0",
                 "TweakClass"              : "org.spongepowered.asm.launch.MixinTweaker"
         ])
