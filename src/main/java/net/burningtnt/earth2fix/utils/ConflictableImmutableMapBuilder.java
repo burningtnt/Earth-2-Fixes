@@ -6,10 +6,11 @@ import net.burningtnt.earth2fix.Logging;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public final class ConflictableImmutableMapBuilder {
-    private static final Random RANDOM = new Random();
+    private static final AtomicInteger FLAG = new AtomicInteger(0);
     private static final Field entriesField;
     private static final Field sizeField;
 
@@ -46,18 +47,20 @@ public final class ConflictableImmutableMapBuilder {
     }
 
     public static <K, V> ImmutableMap<K, V> safeBuild(ImmutableMap.Builder<K, V> builder) {
-        Map<K, V> result = new HashMap<>();
-
         Map.Entry<K, V>[] entries = getEntries(builder);
-        for (int i = 0; i < getSize(builder); i++) {
+        int size = getSize(builder);
+
+        Map<K, V> result = new HashMap<>(size * 2); // Allocate enough spaces at first.
+        for (int i = 0; i < size; i++) {
             Map.Entry<K, V> entry = entries[i];
+
             if (result.containsKey(entry.getKey())) {
                 // Conflict detected
                 V conflictValue = result.get(entry.getKey());
 
                 if (!conflictValue.equals(entry.getValue())) {
                     // Oh no, it's a conflict.
-                    boolean flag = RANDOM.nextBoolean();
+                    boolean flag = FLAG.getAndIncrement() % 2 == 0;
                     Logging.getLogger().warn(
                             String.format(
                                     "Multiple entries in com.google.common.collect.ImmutableMap with the same key and different values are detected by Earth 2 Fixes.\n" +

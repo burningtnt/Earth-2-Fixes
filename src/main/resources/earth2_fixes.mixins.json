@@ -11,7 +11,6 @@
     "minecraft.NetworkManagerMixin",
     "minecraft.RenderType$TypeMixin",
     "minecraft.TemplateManagerMixin",
-    "mods.tac.WorldMixin",
     "mods.carryon.RenderEventsMixin",
     "mods.illunimations.IlluminationsClientMixin",
     "mods.losttrinkets.UnlockHandlerMixin",
@@ -20,7 +19,8 @@
     "mods.obfuscate.HandshakeMessages$S2CSyncedPlayerDataMixin",
     "mods.stevemodel.SteveModelMixin0",
     "mods.tac.BulletTrailRenderingHandlerMixin",
-    "mods.tac.WearableHelperMixin"
+    "mods.tac.WearableHelperMixin",
+    "mods.tac.WorldMixin"
   ],
   "client": [
     "minecraft.SoundEngineMixin",
